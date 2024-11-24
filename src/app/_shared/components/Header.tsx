@@ -9,9 +9,6 @@ export default function Header() {
           <Link href="/dashboard" className="font-bold">
             대시보드
           </Link>
-          <Link href="/my-favor" className="font-bold">
-            즐겨찾기
-          </Link>
           <Link href="/trends" className="font-bold">
             트렌드
           </Link>
