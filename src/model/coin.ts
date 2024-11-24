@@ -31,3 +31,5 @@ export type TrendCoin = {
 export type TrendCoinResponse = {
   coins: TrendCoin[];
 };
+
+export type CoinData = {};

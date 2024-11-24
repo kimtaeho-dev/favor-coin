@@ -1,6 +1,6 @@
 'use client';
 
-import { TrendCoin } from '@/core/schema/coin';
+import { TrendCoin } from '@/model/coin';
 import { MouseEvent, useEffect, useState } from 'react';
 
 import { LocalStorage, StorageKey } from '@/app/_shared/lib/localStorage';

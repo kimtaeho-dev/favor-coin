@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { MouseEvent } from 'react';
 import classNames from 'classnames';
 
-import { TrendCoin } from '@/core/schema/coin';
-import { formatBitcoinToUsd } from '@/app/_shared/lib/coin';
+import { TrendCoin } from '@/model/coin';
+import { formatBitcoinToUsd } from '@/app/_shared/lib/format';
 
 import Star from '@/app/_shared/icon/star.png';
 import StarFilled from '@/app/_shared/icon/star_filled.png';

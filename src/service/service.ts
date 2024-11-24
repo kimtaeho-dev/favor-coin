@@ -1,7 +1,8 @@
 import camelcaseKeys from 'camelcase-keys';
-import { APIError } from '../schema/global';
 
-export default class ApiClient {
+import { APIError } from '@/model/global';
+
+export default class APIService {
   private baseUrl: string;
 
   constructor(baseUrl: string) {
@@ -36,11 +37,7 @@ export default class ApiClient {
     });
   }
 
-  public post<T>(
-    endpoint: string,
-    body?: unknown,
-    options?: RequestInit,
-  ): Promise<T> {
+  public post<T>(endpoint: string, body?: unknown, options?: RequestInit): Promise<T> {
     return this.request<T>(endpoint, {
       ...options,
       method: 'POST',
