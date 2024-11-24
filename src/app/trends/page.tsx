@@ -1,7 +1,13 @@
-export default function TrendsPage() {
+import { coingeckoAPI } from '@/core/api/coingecko';
+import { TrendCoinResponse } from '@/core/schema/coin';
+import TrendCoinList from './_components/TrendCoinList';
+
+export default async function TrendsPage() {
+  const { coins: trendCoins } = await coingeckoAPI.get<TrendCoinResponse>('/search/trending');
+
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="w-full pb-10">
+      <TrendCoinList trendCoins={trendCoins} />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import camelcaseKeys from 'camelcase-keys';
+import { APIError } from '../schema/global';
 
 export default class ApiClient {
   private baseUrl: string;
@@ -20,11 +21,7 @@ export default class ApiClient {
         return camelcaseKeys(data, { deep: true }) as T;
       }
 
-      const errorData = await response.json().catch(() => null);
-      const error = new Error(response.statusText) as any;
-      error.status = response.status;
-      error.data = errorData;
-
+      const error = { status: response.status } as APIError;
       throw error;
     } catch (error) {
       console.error(`Fetch Error: ${(error as Error).message}`);
