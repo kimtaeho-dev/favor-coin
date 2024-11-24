@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import classNames from 'classnames';
 
 import { TrendCoin } from '@/core/schema/coin';
@@ -10,16 +11,29 @@ type Props = {
 export default function TrendCoinItem({ trendCoin }: Props) {
   const {
     item: {
+      id,
       score,
       large: largeIconUrl,
       name,
       symbol,
-      data: { priceChangePercentage24H, price, totalVolume, marketCap, sparkline: sparklineImageUrl },
+      data: {
+        priceChangePercentage24H,
+        price,
+        totalVolume,
+        marketCap,
+        sparkline: sparklineImageUrl,
+      },
     },
   } = trendCoin;
 
   return (
-    <div className="flex items-center w-full p-6 cursor-pointer border border-gray rounded-lg shadow-md">
+    <Link
+      className="flex items-center w-full p-6 cursor-pointer border border-gray rounded-lg shadow-md"
+      href={`https://www.coingecko.com/ko/%EC%BD%94%EC%9D%B8/${id}`}
+      target="_blank"
+      passHref
+      prefetch={false}
+    >
       <div className="text-lg font-semibold mr-2">#{score + 1}</div>
 
       <div className="flex flex-1 gap-2">
@@ -61,6 +75,6 @@ export default function TrendCoinItem({ trendCoin }: Props) {
           <div className="text-xs text-gray-500">지난 7일</div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
