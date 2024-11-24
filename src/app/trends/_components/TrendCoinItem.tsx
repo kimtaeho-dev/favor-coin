@@ -1,14 +1,23 @@
+'use client';
+
 import Link from 'next/link';
+import Image from 'next/image';
+import { MouseEvent } from 'react';
 import classNames from 'classnames';
 
 import { TrendCoin } from '@/core/schema/coin';
 import { formatBitcoinToUsd } from '@/app/_shared/lib/coin';
 
+import Star from '@/app/_shared/icon/star.png';
+import StarFilled from '@/app/_shared/icon/star_filled.png';
+
 type Props = {
   trendCoin: TrendCoin;
+  isFavorite: boolean;
+  onToggleFavorite: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function TrendCoinItem({ trendCoin }: Props) {
+export default function TrendCoinItem({ trendCoin, isFavorite, onToggleFavorite }: Props) {
   const {
     item: {
       id,
@@ -29,10 +38,9 @@ export default function TrendCoinItem({ trendCoin }: Props) {
   return (
     <Link
       className="flex items-center w-full p-6 cursor-pointer border border-gray rounded-lg shadow-md"
+      prefetch={false}
       href={`https://www.coingecko.com/ko/%EC%BD%94%EC%9D%B8/${id}`}
       target="_blank"
-      passHref
-      prefetch={false}
     >
       <div className="text-lg font-semibold mr-2">#{score + 1}</div>
 
@@ -74,6 +82,10 @@ export default function TrendCoinItem({ trendCoin }: Props) {
           <img className="w-28 h-auto" src={sparklineImageUrl} />
           <div className="text-xs text-gray-500">지난 7일</div>
         </div>
+
+        <button className="ml-6" onClick={onToggleFavorite}>
+          <Image width={22} height={22} alt="코인 즐겨찾기" src={isFavorite ? StarFilled : Star} />
+        </button>
       </div>
     </Link>
   );
