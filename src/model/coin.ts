@@ -14,10 +14,7 @@ export type TrendCoin = {
     data: {
       price: number;
       priceBtc: string;
-      priceChangePercentage24H: {
-        btc: number;
-        usd: number;
-      };
+      priceChangePercentage24H: CoinPriceInfoBase;
       marketCap: string;
       marketCapBtc: string;
       totalVolume: string;
@@ -32,4 +29,41 @@ export type TrendCoinResponse = {
   coins: TrendCoin[];
 };
 
-export type CoinData = {};
+export type CoinDetail = {
+  id: string;
+  symbol: string;
+  name: string;
+  description: {
+    en: string;
+    ko: string;
+  };
+  image: {
+    thumb: string;
+    small: string;
+    large: string;
+  };
+  sentimentVotesUpPercentage: number;
+  sentimentVotesDownPercentage: number;
+  marketData: {
+    currentPrice: CoinPriceInfoBase;
+    ath: CoinPriceInfoBase;
+    athChangePercentage: CoinPriceInfoBase;
+    atl: CoinPriceInfoBase;
+    atlChangePercentage: CoinPriceInfoBase;
+    marketCap: CoinPriceInfoBase;
+    totalVolume: CoinPriceInfoBase;
+    priceChangePercentage24H: number;
+    totalSupply: number;
+    maxSupply: number | null;
+    circulatingSupply: number;
+    sparkline7D: {
+      price: number[];
+    };
+    lastUpdated: string;
+  };
+};
+
+type CoinPriceInfoBase = {
+  btc: number;
+  usd: number;
+};

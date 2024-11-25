@@ -1,9 +1,9 @@
-'use client';
+import MyCoinDashboard from './_components/MyCoinDashboard';
 
 export default function DashboardPage() {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="w-full pb-10">
+      <MyCoinDashboard />
     </div>
   );
 }

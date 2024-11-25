@@ -25,7 +25,9 @@ export default function TrendCoinList({ trendCoins }: Props) {
 
   // sync to localStorage
   useEffect(() => {
-    LocalStorage.setItem<string[]>(StorageKey.FavoriteCoins, favoriteCoins);
+    if (favoriteCoins.length) {
+      LocalStorage.setItem<string[]>(StorageKey.FavoriteCoins, favoriteCoins);
+    }
   }, [favoriteCoins]);
 
   const handleToggleFavorite = (id: string) => (event: MouseEvent<HTMLButtonElement>) => {

@@ -37,7 +37,7 @@ export default function TrendCoinItem({ trendCoin, isFavorite, onToggleFavorite 
 
   return (
     <Link
-      className="flex items-center w-full p-6 cursor-pointer border border-gray rounded-lg shadow-md"
+      className="flex items-center w-full p-6 cursor-pointer border border-gray-100 rounded-2xl shadow-lg"
       prefetch={false}
       href={`https://www.coingecko.com/ko/%EC%BD%94%EC%9D%B8/${id}`}
       target="_blank"

@@ -1,5 +1,6 @@
-import { TrendCoinResponse } from '../../model/coin';
 import APIService from '../service';
+
+import { CoinDetail, TrendCoinResponse } from '../../model/coin';
 
 class CoingeckoService extends APIService {
   getTrendCoins() {
@@ -7,16 +8,17 @@ class CoingeckoService extends APIService {
   }
 
   getCoinData(id: string) {
-    return this.get<any>(
-      `/coin/${id}` +
+    return this.get<CoinDetail>(
+      `/coins/${id}?` +
         new URLSearchParams({
-          localization: 'false',
           tickers: 'false',
-          market_data: 'false',
-          community_data: 'false',
-          developer_data: 'false',
           sparkline: 'true',
         }).toString(),
+      {
+        headers: {
+          'x-cg-demo-api-key': 'CG-LR9DCdHovmxat43PBGMbwXbZ',
+        },
+      },
     );
   }
 }
