@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Favor Coin
 
-## Getting Started
+Coingecko API를 활용하여, 최근 있기있는 암호화폐를 탐색하고, 즐겨찾기하여 나만의 Dashboard를 구성하는 프로젝트입니다.
 
-First, run the development server:
+### 주요 활용 기술
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Typescript
+- Next.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 주요 활용 라이브러리
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Tailwind CSS
+- Tanstack Query
+- Recharts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### 추가로 진행되면 좋은 것
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- trends list tanstack query 적용 및, 새로고침 기능 추가.
+- Coin Dashboard 각 요소에 새로고침 기능 추가.
+- Coin Dashboard 각 요소에 즐겨찾기 제거 기능 추가.
+- Coin Dashboard 각 요소를 원하는 순서로 배치할 수 있도록 기능 추가.
+- 즐겨찾기한 코인이 없을 때 Dashboard 메뉴에서 안내 추가
